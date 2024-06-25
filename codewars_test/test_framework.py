@@ -5,14 +5,34 @@ class AssertException(Exception):
     pass
 
 
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
+
 def format_message(message):
     return message.replace("\n", "<:LF:>")
 
 
 def display(type, message, label="", mode=""):
-    print("\n<{0}:{1}:{2}>{3}".format(
-        type.upper(), mode.upper(), label, format_message(message))
-        , flush=True)
+    color = {
+        "IT": bcolors.OKCYAN,
+        "DESCRIBE": bcolors.OKBLUE,
+        "COMPLETEDIN": bcolors.HEADER,
+        "PASSED": bcolors.OKGREEN,
+        "FAILED": bcolors.FAIL
+    }.get(type, "")
+
+    print(color + "\n<{0}:{1}:{2}>{3}".format(
+        type.upper(), mode.upper(), label, format_message(message)
+    ) + bcolors.ENDC, flush=True)
 
 
 def expect(passed=None, message=None, allow_raise=False):
