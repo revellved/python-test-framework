@@ -1,4 +1,6 @@
-# Codewars Test Framework for Python
+# Codewars Test Framework for Python (custom)
+
+> fork support colorize console (linux)
 
 ### Installation
 
