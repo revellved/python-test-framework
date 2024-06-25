@@ -3,7 +3,7 @@
 ### Installation
 
 ```bash
-pip install git+https://github.com/codewars/python-test-framework.git#egg=codewars_test
+pip install git+https://github.com/revellved/python-test-framework.git#egg=codewars_test
 ```
 
 ### Basic Example
